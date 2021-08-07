@@ -1,0 +1,53 @@
+{
+  "name": "simplify-css",
+  "version": "0.0.1",
+  "description": "CSS Package for Simplify",
+  "main": "dist/css/simplify-css.css",
+  "browser": "dist/css/simplify-css.css",
+  "module": "dist/css/simplify-css.css",
+  "unpkg": "dist/css/simplify-css.css",
+  "files": [
+    "dist/*"
+  ],
+  "scripts": {
+    "build": "npm run build-sass && npm run build-autoprefix && npm run build-cleancss",
+    "build-autoprefix": "postcss --use autoprefixer --map false --output dist/css/simplify-css.css dist/css/simplify-css.css",
+    "build-cleancss": "cleancss -o dist/css/simplify-css.min.css dist/css/simplify-css.css",
+    "build-sass": "node-sass --output-style expanded --source-map true scss/simplify-css.scss dist/css/simplify-css.css",
+    "clean": "rimraf css",
+    "rtl": "npm run rtl-sass && npm run rtl-autoprefix && npm run rtl-cleancss",
+    "rtl-sass": "node-sass --output-style expanded --source-map true scss/simplify-css-rtl.sass dist/css/simplify-css-rtl.css",
+    "rtl-autoprefix": "postcss --use autoprefixer --map false --output dist/css/simplify-css-rtl.css dist/css/simplify-css-rtl.css",
+    "rtl-cleancss": "cleancss -o dist/css/simplify-css-rtl.min.css dist/css/simplify-css-rtl.css",
+    "deploy": "npm run clean && npm run build && npm run rtl",
+    "watch": "npm run build-sass -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SimonMarcelLinden/simplify-css.git"
+  },
+  "keywords": [
+    "CSS",
+    "SCSS",
+    "simplfy",
+    "simplify-vue",
+    "simplify-css",
+    "node-sass",
+    "sass-loader"
+  ],
+  "author": "Simon Marcel Linden",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SimonMarcelLinden/simplify-css/issues"
+  },
+  "homepage": "https://github.com/SimonMarcelLinden/simplify-css#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.8.6",
+    "clean-css-cli": "^4.3.0",
+    "node-sass": "^6.0.1",
+    "nodemon": "^2.0.12",
+    "postcss-cli": "^7.1.2",
+    "sass-loader": "^12.1.0",
+    "rimraf": "^3.0.2"
+  }
+}

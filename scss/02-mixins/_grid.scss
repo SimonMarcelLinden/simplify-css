@@ -1,0 +1,62 @@
+@mixin row($gutter: $grid-gutter-width) {
+    display     : flex;
+    flex-wrap   : wrap;
+    margin-right: 15px; // stylelint-disable-line function-disallowed-list
+    margin-left : 15px; // stylelint-disable-line function-disallowed-list
+}
+
+@mixin col($size: false, $columns: $grid-columns) {
+    @if $size {
+        flex: 0 0 auto;
+        width: $size/$columns * 100%;
+    } @else {
+        flex: 1 1 0;
+        max-width: 100%;
+    }
+}
+
+@mixin col-offset($size, $columns: $grid-columns) {
+    $num: $size/ $columns * 100%;
+    margin-left: if($num == 0, 0, $num);
+}
+
+@mixin grid-columns($columns: $grid-columns, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints) {
+    @each $breakpoint in map-keys($grid-breakpoints) {
+        $prefix: breakpoint-prefix( $breakpoint, $grid-breakpoints );
+
+        @if $columns > 0 {
+            @for $i from 1 through $columns {
+                .#{$prefix}col-#{$i} {
+                    @extend .col;
+                }
+            }
+        }
+        
+        @include breakpoint($breakpoint) {
+            .#{$prefix}col {
+                flex: 1 0 0;
+            }
+
+            .#{$prefix}col-auto {
+                flex : 0 0 auto;
+                width: auto;
+            }
+
+            @if $columns > 0 {
+                @for $i from 1 through $columns {
+                    .#{$prefix}col-#{$i} {
+                        @include col($i, $columns);
+                    }
+                }
+            }
+            
+            @for $i from 0 through ($columns - 1) {
+                @if not($prefix == "" and $i == 0) {
+                    .#{$prefix}offset-#{$i} {
+                        @include col-offset($i, $columns);
+                    }
+                }
+            }
+        }
+    }
+}

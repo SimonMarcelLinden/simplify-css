@@ -1,6 +1,6 @@
 {
-  "name": "simplify-css",
-  "version": "0.0.1",
+  "name": "simplify-css-package",
+  "version": "1.0.0",
   "description": "CSS Package for Simplify",
   "main": "dist/css/simplify-css.css",
   "browser": "dist/css/simplify-css.css",

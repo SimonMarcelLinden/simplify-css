@@ -295,6 +295,7 @@ $light: map-get(
     $map: $gray,
     $key: 100,
 ) !default;
+$link: $primary;
 $dark: map-get(
     $map: $gray,
     $key: 900,
@@ -309,5 +310,11 @@ $theme-colors: (
     "warning"   : $warning,
     "danger"    : $danger,
     "light"     : $light,
+    "link"      : $link,
     "dark"      : $dark,
 ) !default;
+
+$min-contrast-ratio   : 4.5 !default;
+
+$color-contrast-dark : $black !default;
+$color-contrast-light: $white !default;

@@ -1,0 +1,42 @@
+$btn-border-radius-sm:        .25rem !default;
+$btn-border-radius-md:        .2rem !default;
+$btn-border-radius-lg:        .3rem !default;
+
+// // $font-size-root:              null !default;
+// // $font-size-base:              1rem !default; // Assumes the browser default, typically `16px`
+// // $font-size-sm:                $font-size-base * .875 !default;
+// // $font-size-lg:                $font-size-base * 1.25 !default;
+
+$btn-font-size: (
+    sm: 1rem * .875,
+    md: 1rem,
+    lg: 1rem * 1.25,
+);
+
+$btn-padding: (
+    sm:(x: .5rem, y: .25rem ),
+    md:(x: .75rem, y: .375rem ),
+    lg:(x: 1rem, y: .5rem )
+);
+
+$btn-sm: (
+  padding   : map-get($map: $btn-padding, $key: sm),
+  font-size : map-get($map: $btn-font-size, $key: sm),
+  radius    : $btn-border-radius-sm,
+);
+$btn-md: (
+  padding   : map-get($map: $btn-padding, $key: md),
+  font-size : map-get($map: $btn-font-size, $key: md),
+  radius    : $btn-border-radius-md,
+);
+$btn-lg: (
+  padding   : map-get($map: $btn-padding, $key: lg),
+  font-size : map-get($map: $btn-font-size, $key: lg),
+  radius    : $btn-border-radius-lg,
+);
+
+$btn-size: (
+    sm: $btn-sm,
+    md: $btn-md,
+    lg: $btn-lg,
+);

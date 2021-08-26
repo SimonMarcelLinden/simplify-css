@@ -1,0 +1,34 @@
+@mixin button-variant($color) {
+    $colors: variant-color($color);
+    $hover : map-get($colors, 'hover');
+
+    color           : map-get($colors, 'color');
+    background-color: map-get($colors, 'background');
+    border-color    : map-get($colors, 'border');
+
+    &:hover {
+        color           : map-get($hover, 'color');
+        background-color: map-get($hover, 'background');
+        border-color    : map-get($hover, 'border');
+    }
+}
+
+@mixin button-variant-outline($color) {
+    $colors: variant-color($color);
+    $hover : map-get($colors, 'hover');
+    
+    color           : $color;
+    border-color    : map-get($colors, 'border');
+
+    &:hover {
+        color           : map-get($colors, 'color');
+        background-color: map-get($colors, 'background');
+        border-color    : map-get($colors, 'border');
+    }
+}
+
+@mixin button-size($padding, $font-size: null, $radius: null) {
+    padding      : map-get($padding, 'y') map-get($padding, 'x');
+    font-size    : $font-size;
+    border-radius: $radius;
+}

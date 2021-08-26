@@ -1,0 +1,45 @@
+.row {
+    display     : flex;
+    flex-wrap   : wrap;
+    margin      : {
+        right: -15px;
+        left : -15px
+    }
+}
+
+.col{
+    position: relative;
+    width   : 100%;
+    padding : {
+        right: 15px;
+        left : 15px
+    }
+}
+
+// Generate Columns
+// Common styles for small and large grid columns
+@include grid-columns();
+
+// Loop over each breakpoint
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include breakpoint($breakpoint) {
+        $prefix: breakpoint-prefix($breakpoint, $grid-breakpoints);
+
+        @each $key, $utility in $grid_utilities {
+            @if type-of($utility) == "map" and (map-get($utility, responsive) or $prefix == "") {
+                @include generate-utility($utility, $prefix);
+            }
+        }
+    }
+}
+
+// Generate Print Media
+@media print {
+    @each $key, $utility in $grid_utilities {
+        // The utility can be disabled with `false`, thus check if the utility is a map first
+        // Then check if the utility needs print styles
+        @if type-of($utility) == "map" and map-get($utility, print) == true {
+            @include generate-utility($utility, "print\\:");
+        }
+    }
+}

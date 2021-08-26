@@ -1,0 +1,27 @@
+// Container class with breakpoint max-width
+// Container at all breakpoints with width 100%
+.container,
+.container-fluid{
+    @include make-container();
+}
+
+@each $breakpoint, $container-max-width in $breakpoints {
+    $prefix: breakpoint-prefix( $breakpoint, $grid-breakpoints );
+
+    .#{$prefix}container {
+        @extend .container-fluid;
+    }
+
+    @include breakpoint($breakpoint, $grid-breakpoints) {
+        %container-#{$breakpoint} {
+            max-width: $container-max-width;
+        }
+        $extend-breakpoint: true;
+
+        @each $name, $width in $grid-breakpoints {
+            .#{$prefix}container {
+                @extend %container-#{$breakpoint};
+            }
+        }
+    }
+}

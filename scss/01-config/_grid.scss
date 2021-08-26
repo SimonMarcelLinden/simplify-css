@@ -1,0 +1,28 @@
+// Grid columns
+// Set the number of columns and specify the width of the gutters.
+$grid-columns:         12 !default;
+$grid-rows:            6 !default;
+$grid-gutter-width:    1.5rem !default;
+
+$gutters: $spacers !default;
+
+// Grid property map for generate utilies
+$grid_utilities: (
+    "align":
+        (
+            property: vertical-align,
+            class: align,
+            values: baseline top middle bottom text-bottom text-top,
+        ),
+    "align-items": (
+        responsive  : true,
+        property    : align-items,
+        values: (
+            start: flex-start,
+            end: flex-end,
+            center: center,
+            baseline: baseline,
+            stretch: stretch,
+        ),
+    )
+);

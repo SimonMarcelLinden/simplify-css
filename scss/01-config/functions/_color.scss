@@ -1,0 +1,95 @@
+@function pow($base, $exponents) {
+    $raised: 1;
+  
+    @for $i from 1 through $exponents {
+        $raised: $raised * $base;
+    }
+  
+    @return $raised;
+}
+
+@function luminance($color) {
+    $colors: (
+        "red":   red($color),
+        "green": green($color),
+        "blue":  blue($color),
+    );
+    
+    @each $name, $value in $colors {
+        $adjusted: 0;
+        $value: $value / 255;
+
+        @if $value < 0.03928 {
+            $value: $value / 12.92;
+        } @else {
+            $value: ($value + 0.055) / 1.055;
+            $value: pow($value, 2.4);
+        }
+
+        $colors: map-merge( $colors, ( $name: $value, ) );
+    }
+
+    $red    : map-get($colors, "red") * 0.2126;
+    $green  : map-get($colors, "green") * 0.7152;
+    $blue   : map-get($colors, "blue") * 0.0722;
+
+    @return $red + $green + $blue;
+}
+
+@function contrast-ratio($background, $foreground: $color-contrast-light) {
+    $state: mix(rgba($foreground, 1), $background, opacity($foreground) * 100);
+
+    $l1: luminance($background);
+    $l2: luminance($state);
+
+    @return if($l1 > $l2, ($l1 + 0.05)/( $l2 + 0.05), ($l2 + 0.05)/($l1 + 0.05));
+}
+
+@function color-contrast($background) {
+    $foregrounds    : $color-contrast-light, $color-contrast-dark, $white, $black;
+    $max-ratio      : 0;
+    $max-ratio-color: null;
+
+    @each $color in $foregrounds {
+        $contrast-ratio: contrast-ratio($background, $color);
+        @if $contrast-ratio > $min-contrast-ratio {
+            @return $color;
+        } @else if $contrast-ratio > $max-ratio {
+            $max-ratio      : $contrast-ratio;
+            $max-ratio-color: $color;
+        }
+    }
+    
+    @warn "Found no color leading to #{$min-contrast-ratio}:1 contrast ratio against #{$background}...";
+
+    @return $max-ratio-color;
+}
+
+@function shade-color($color, $weight) {
+    @return mix(black, $color, $weight);
+}
+
+@function tint-color($color, $weight) {
+    @return mix(white, $color, $weight);
+}
+
+@function variant-color($color, $background: null, $border: null) {
+    $background         : if($background, $background, $color);
+    $border             : if($border, $border, $color);
+    $color              : color-contrast($color);
+        
+    $hover-background   : if($color == $color-contrast-light, shade-color($background, 15%), tint-color($background, 15%));
+    $hover-color        : color-contrast($hover-background);;
+    $hover-border       : if($color == $color-contrast-light, shade-color($border, 20%), tint-color($border, 10%));
+  
+    @return (
+        color       : $color,
+        background  : $background,
+        border      : $border,
+        hover       : (
+            color       : $hover-color,
+            background  : $hover-background,
+            border      : $hover-border,
+        ),
+    );
+}

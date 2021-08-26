@@ -1,56 +1,53 @@
 {
-  "name": "simplify-css",
-  "version": "0.0.1",
-  "description": "",
-  "main": "dist/simplify-css.ssr.js",
-  "browser": "dist/simplify-css.esm.js",
-  "module": "dist/simplify-css.esm.js",
-  "unpkg": "dist/simplify-css.min.js",
-  "types": "dist/types/src/entry.esm.d.ts",
+  "name": "simplify-css-package",
+  "version": "1.0.0",
+  "description": "CSS Package for Simplify",
+  "main": "dist/css/simplify-css.css",
+  "browser": "dist/css/simplify-css.css",
+  "module": "dist/css/simplify-css.css",
+  "unpkg": "dist/css/simplify-css.css",
   "files": [
-    "dist/*",
-    "src/**/*.vue"
+    "dist/*"
   ],
-  "sideEffects": false,
   "scripts": {
-    "serve": "vue-cli-service serve dev/serve.ts",
-    "prebuild": "rimraf ./dist",
-    "build": "cross-env NODE_ENV=production rollup --config build/rollup.config.js",
-    "build:ssr": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format cjs",
-    "build:es": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format es",
-    "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife",
-    "postbuild": "rimraf ./dist/types/dev ./dist/types/src/entry.d.ts"
+    "build": "npm run build-sass && npm run build-autoprefix && npm run build-cleancss",
+    "build-autoprefix": "postcss --use autoprefixer --map false --output dist/css/simplify-css.css dist/css/simplify-css.css",
+    "build-cleancss": "cleancss -o dist/css/simplify-css.min.css dist/css/simplify-css.css",
+    "build-sass": "node-sass --output-style expanded --source-map true scss/simplify-css.scss dist/css/simplify-css.css",
+    "clean": "rimraf css",
+    "rtl": "npm run rtl-sass && npm run rtl-autoprefix && npm run rtl-cleancss",
+    "rtl-sass": "node-sass --output-style expanded --source-map true scss/simplify-css-rtl.sass dist/css/simplify-css-rtl.css",
+    "rtl-autoprefix": "postcss --use autoprefixer --map false --output dist/css/simplify-css-rtl.css dist/css/simplify-css-rtl.css",
+    "rtl-cleancss": "cleancss -o dist/css/simplify-css-rtl.min.css dist/css/simplify-css-rtl.css",
+    "deploy": "npm run clean && npm run build && npm run rtl",
+    "watch": "npm run build-sass -- --watch"
   },
-  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SimonMarcelLinden/simplify-css.git"
+  },
+  "keywords": [
+    "CSS",
+    "SCSS",
+    "simplfy",
+    "simplify-vue",
+    "simplify-css",
+    "node-sass",
+    "sass-loader"
+  ],
+  "author": "Simon Marcel Linden",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SimonMarcelLinden/simplify-css/issues"
+  },
+  "homepage": "https://github.com/SimonMarcelLinden/simplify-css#readme",
   "devDependencies": {
-    "@babel/core": "^7.14.6",
-    "@babel/preset-env": "^7.14.7",
-    "@babel/preset-typescript": "^7.14.5",
-    "@rollup/plugin-alias": "^3.1.2",
-    "@rollup/plugin-babel": "^5.3.0",
-    "@rollup/plugin-commonjs": "^14.0.0",
-    "@rollup/plugin-node-resolve": "^9.0.0",
-    "@rollup/plugin-replace": "^2.4.2",
-    "@vue/cli-plugin-babel": "^4.5.13",
-    "@vue/cli-plugin-typescript": "^4.5.13",
-    "@vue/cli-service": "^4.5.13",
-    "@zerollup/ts-transform-paths": "^1.7.18",
-    "cross-env": "^7.0.3",
-    "minimist": "^1.2.5",
-    "rimraf": "^3.0.2",
-    "rollup": "^2.52.8",
-    "rollup-plugin-terser": "^7.0.2",
-    "rollup-plugin-vue": "^5.1.9",
-    "rollup-plugin-typescript2": "^0.30.0",
-    "ttypescript": "^1.5.12",
-    "typescript": "^4.0.3",
-    "vue": "^2.6.14",
-    "vue-template-compiler": "^2.6.14"
-  },
-  "peerDependencies": {
-    "vue": "^2.6.14"
-  },
-  "engines": {
-    "node": ">=12"
+    "autoprefixer": "^9.8.6",
+    "clean-css-cli": "^4.3.0",
+    "node-sass": "^6.0.1",
+    "nodemon": "^2.0.12",
+    "postcss-cli": "^7.1.2",
+    "sass-loader": "^12.1.0",
+    "rimraf": "^3.0.2"
   }
 }

@@ -1,0 +1,15 @@
+@import "./padding";
+@import "./margin";
+
+// Loop over each breakpoint
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include breakpoint($breakpoint) {
+        $prefix: breakpoint-prefix($breakpoint, $grid-breakpoints);
+
+        @each $key, $utility in $utilities {
+            @if type-of($utility) == "map" and (map-get($utility, responsive) or $prefix == "") {
+                @include generate-utility($utility, $prefix);
+            }
+        }
+    }
+}

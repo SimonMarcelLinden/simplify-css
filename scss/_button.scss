@@ -13,10 +13,8 @@
 // @each $point, $size in $btn-size {
 @each $point in map-keys($btn-size) {
     .#{$point}\:btn {
-        $btn: map-get($btn-size, $point);
-        $padding:  map-get($btn, 'padding');
+        $btn  : map-get($btn-size, $point);
         
-
         @include button-size(
             map-get($btn, 'padding'),
             map-get($btn, 'font-size'),

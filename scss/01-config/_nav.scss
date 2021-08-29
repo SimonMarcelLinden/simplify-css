@@ -1,0 +1,10 @@
+$nav-link-color         : $link-color !default;
+$nav-link-hover-color   : $link-hover-color !default;
+$nav-link-transition    : color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out !default;
+$nav-link-disabled-color: map-get($gray, 600) !default;
+
+$nav-link-padding-x     : map-get($spacers, 3);
+$nav-link-padding-y     : map-get($spacers, 2);
+
+$nav-link-font-size     :  null !default;
+$nav-link-font-weight   :  null !default;

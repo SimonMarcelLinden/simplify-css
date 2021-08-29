@@ -69,6 +69,10 @@
     @return mix(black, $color, $weight);
 }
 
+@function shift-color($color, $weight) {
+    @return if($weight > 0, shade-color($color, $weight), tint-color($color, -$weight));
+}
+
 @function tint-color($color, $weight) {
     @return mix(white, $color, $weight);
 }

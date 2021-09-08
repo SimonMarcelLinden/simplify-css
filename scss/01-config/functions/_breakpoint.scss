@@ -8,6 +8,11 @@
     @return if($min != 0, $min, null);
 }
 
+@function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
+    $max: map-get($breakpoints, $name);
+    @return if($max and $max > 0, $max - .02, null);
+}
+
 @function breakpoint-next($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
     $n: index($breakpoint-names, $name);
     @if not $n {
@@ -17,11 +22,16 @@
 }
 
 // Applied the @content to the given breakpoint and wider.
-@mixin breakpoint($viewpoint, $breakpoints: $grid-breakpoints) {
+@mixin breakpoint($viewpoint, $breakpoints: $grid-breakpoints, $type: 'min') {
     $min: breakpoint-min($viewpoint, $breakpoints);
+    $max: breakpoint-max($viewpoint, $breakpoints);
 
-    @if $min {
+    @if $min and $type == 'min' {
         @media (min-width: $min) {
+            @content;
+        }
+    } @else if $max and $type == 'max' {
+        @media (max-width: $max) {
             @content;
         }
     } @else {

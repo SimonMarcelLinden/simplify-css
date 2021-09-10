@@ -25,13 +25,31 @@ $input-border-width : $border-width !default;
 $input-box-shadow   : $box-shadow-inset !default;
 
 $input-padding      : map-get($btn-padding, md) !default;
+$input-padding-y    : map-get($input-padding, y );
+$input-padding-x    : map-get($input-padding, x );
+
 $input-font-family  : null !default;
 $input-font-size    : map-get($btn-font-size, md) !default;
 $input-font-weight  : $font-weight-base !default;
 $input-line-height  : $btn-line-height !default;
 
+$input-font-size-sm : map-get($btn-font-size, sm) !default;
+$input-padding-y-sm : map-get($input-padding, y );
+$input-padding-x-sm : map-get($input-padding, x );
+
+$input-font-size-lg : map-get($btn-font-size, lg) !default;
+$input-padding-y-lg : map-get($input-padding, y );
+$input-padding-x-lg : map-get($input-padding, x );
+
+
 $input-border-radius-sm : map-get($btn-sm, radius) !default;
 $input-border-radius    : map-get($btn-md, radius) !default;
 $input-border-radius-lg : map-get($btn-lg, radius) !default;
 
-$input-transition:                      border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
+$input-height-border: $input-border-width * 2 !default;
+
+$input-height   : add($input-line-height * 1em, add($input-padding-y * 2, $input-height-border, false)) !default;
+$input-height-sm: add($input-line-height * 1em, add($input-padding-y-sm * 2, $input-height-border, false)) !default;
+$input-height-lg: add($input-line-height * 1em, add($input-padding-y-lg * 2, $input-height-border, false)) !default;
+
+$input-transition   : border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;

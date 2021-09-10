@@ -125,6 +125,11 @@ img, svg {
 
 /** Forms, Buttons & other **/
 
+form, .form {
+    position: relative;
+    width   : 100%;
+}
+
 label {
     display: inline-block;
 }

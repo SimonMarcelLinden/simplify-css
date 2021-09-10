@@ -1,0 +1,31 @@
+:root {
+    /** Font variables **/        
+    --body-font-family  : #{$font-family-base};
+    --body-font-size    : #{$font-size-base};
+    --body-font-weight  : #{$font-weight-base};
+    --body-line-height  : #{$line-height-base};
+    --body-bg           : #{$body-bg};
+    --body-color        : #{$body-color};
+    --body-text-align   : #{$body-text-align};
+
+    /** Theme Color **/
+    @each $color, $value in $theme-colors {
+        --#{$color}: #{$value};
+    }
+        
+    /** RGB Color map **/
+    @each $color, $value in $theme-colors-rgb {
+        --#{$color}-rgb: #{$value};
+    }
+
+    --white-rgb: #{to-rgb($white)};
+    --black-rgb: #{to-rgb($black)};
+    --body-rgb: #{to-rgb($body-color)};
+
+    /** Color map **/
+    @each $name, $colors in $colors {
+        @each $color, $val in $colors {
+            --#{$name}-#{$color}: #{$val};
+        }
+    }
+}

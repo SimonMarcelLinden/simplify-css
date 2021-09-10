@@ -1,6 +1,7 @@
 @import "./color";
-@import "./basic";
 @import "./spacers";
+
+@import "./typography";
 
 @import "./breakpoints";
 @import "./grid";
@@ -10,6 +11,7 @@
 @import "./carret";
 
 @import "./button";
+@import "./forms";
 @import "./dropdown";
 @import "./nav";
 @import "./navbar";
@@ -20,3 +22,12 @@ $utilities: () !default;
 
 @import "./padding";
 @import "./margin";
+
+// scss-docs-start zindex-stack
+$z-dropdown        : 1000 !default;
+$z-sticky          : 1010 !default;
+$z-fixed           : 1020 !default;
+$z-modal-backdrop  : 1030 !default;
+$z-modal           : 1035 !default;
+$z-popover         : 1040 !default;
+$z-tooltip         : 1050 !default;

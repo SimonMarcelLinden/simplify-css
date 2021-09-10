@@ -13,7 +13,7 @@
 		color           : $nav-link-color;
 		text-decoration : none;
 		transition      : $nav-link-transition;
-    
+
 		&:hover,
 		&:focus {
 			color          : $nav-link-hover-color;
@@ -27,6 +27,56 @@
 			pointer-events: none;
 			cursor        : default;
       	}
+    }
+	
+	&-search {
+		flex-direction: row;
+        
+		&.open {
+			opacity   : 1;
+			visibility: visible;
+			animation : slideInLeft 1s both;
+		}
+
+		.search-link {
+			
+		}
+
+		.search-wrapper {
+			position    : fixed;
+			display     : flex;
+			height      : 100%;
+			max-width   : 800px;
+			left        : 0;
+			bottom      : 0;
+			right       : 0;
+			margin      : 0 auto;
+			padding     : 80px 0;
+			opacity     : 0;
+			visibility  : hidden;
+			align-items : center;
+			z-index     : 9999;        
+
+			@include breakpoint(lg, $grid-breakpoints, 'max') {
+				max-width: 100%;
+				margin 	 : 0 30px;
+			}
+
+			&.open {
+				opacity 	: 1;
+				visibility 	: visible;
+				animation 	: slideInLeft 1s both;
+			}
+		}
+
+		.search-close {
+			position : absolute;
+			right 	 : 0;
+			top 	 : 25%;
+			font-size: 24px;
+			color  	 : #fff;
+			cursor 	 : pointer;
+		}
     }
 }
   

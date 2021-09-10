@@ -1,0 +1,33 @@
+.form-control {
+  display     : block;
+  width       : 100%;
+  padding     : map-get($input-padding, y) map-get($input-padding, x); 
+  @include border-radius($input-border-radius);
+  border      : {
+    width     : $input-border-width;
+    style     : solid;
+    color     : $input-border-color;
+  }
+  background  : {
+    color     : $input-bg;
+    clip      : padding-box;
+  }
+  box-shadow  : $input-box-shadow;
+  font-family : $input-font-family;
+  font-size   : $input-font-size;
+  font-weight : $input-font-weight;
+  line-height : $input-line-height;
+  color       : $input-color;
+
+  appearance  : none;
+
+  transition  : $input-transition;
+
+  &[type="file"] {
+    overflow: hidden; 
+
+    &:not(:disabled):not([readonly]) {
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+// Forms
+
+// scss-docs-start form-text-variables
+$form-text-margin-top       : .25rem !default;
+$form-text-font-size        : $font-size-sm !default;
+$form-text-font-style       : null !default;
+$form-text-font-weight      : null !default;
+$form-text-color            : $text-muted !default;
+// scss-docs-end form-text-variables
+
+// scss-docs-start form-label-variables
+$form-label-margin-bottom   : .5rem !default;
+$form-label-font-size       : null !default;
+$form-label-font-style      : null !default;
+$form-label-font-weight     : null !default;
+$form-label-color           : null !default;
+
+$input-bg                   : $body-bg !default;
+$input-disabled-bg          : map-get($gray, 200) !default;
+$input-disabled-border-color: null !default;
+
+$input-color        : $body-color !default;
+$input-border-color : map-get($gray, 400) !default;
+$input-border-width : $border-width !default;
+$input-box-shadow   : $box-shadow-inset !default;
+
+$input-padding      : map-get($btn-padding, md) !default;
+$input-font-family  : null !default;
+$input-font-size    : map-get($btn-font-size, md) !default;
+$input-font-weight  : $font-weight-base !default;
+$input-line-height  : $btn-line-height !default;
+
+$input-border-radius-sm : map-get($btn-sm, radius) !default;
+$input-border-radius    : map-get($btn-md, radius) !default;
+$input-border-radius-lg : map-get($btn-lg, radius) !default;
+
+$input-transition:                      border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;

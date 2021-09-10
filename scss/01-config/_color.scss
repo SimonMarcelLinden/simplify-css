@@ -267,6 +267,31 @@ $blueGray: (
     900: #0f172a,
 );
 
+$colors: (
+    "rose"      : $rose,
+    "pink"      : $pink,
+    "fuchsia"   : $fuchsia,
+    "purple"    : $purple,
+    "violet"    : $violet,
+    "indigo"    : $indigo,
+    "blue"      : $blue,
+    "lightBlue" : $lightBlue,
+    "cyan"      : $cyan,
+    "teal"      : $teal,
+    "emerald"   : $emerald,
+    "green"     : $green,
+    "lime"      : $lime,
+    "yellow"    : $yellow,
+    "amber"     : $amber,
+    "orange"    : $orange,
+    "red"       : $red,
+    "warmGray"  : $warmGray,
+    "trueGray"  : $trueGray,
+    "gray"      : $gray,
+    "coolGray"  : $coolGray,
+    "blueGray"  : $blueGray
+) !default;
+
 $primary: map-get(
     $map: $blue,
     $key: 600,
@@ -313,6 +338,9 @@ $theme-colors: (
     "link"      : $link,
     "dark"      : $dark,
 ) !default;
+
+
+$theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value") !default;
 
 $body-bg            : $white !default;
 $body-color         : map-get($gray, 900) !default;

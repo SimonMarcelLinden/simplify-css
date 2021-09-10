@@ -3,10 +3,12 @@ $btn-border-radius-sm : $btn-border-radius;
 $btn-border-radius-md : .2rem !default;
 $btn-border-radius-lg : .3rem !default;
 
+$btn-line-height      : $line-height-base !default;
+
 $btn-font-size: (
-    sm: 1rem * .875,
-    md: 1rem,
-    lg: 1rem * 1.25,
+    sm: $font-size-base * .875,
+    md: $font-size-base,
+    lg: $font-size-base * 1.25,
 );
 
 $btn-padding: (

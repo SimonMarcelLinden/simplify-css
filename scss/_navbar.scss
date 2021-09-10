@@ -47,16 +47,17 @@
             height: 100%;
             width : auto;
         }
+
         @include breakpoint(sm, $grid-breakpoints, 'max') {
             img {
                 width: 156px;
             }
-        }
+        }    
     }
 
     &-nav {
         display         : flex;
-        flex-direction  : row;
+        flex-direction  : column;
         padding-left    : 0;
         margin-bottom   : 0;
         list-style      : none;
@@ -64,10 +65,17 @@
         .nav-link {
             padding-right : 0;
             padding-left  : 0;
+            @include breakpoint(lg, $grid-breakpoints, 'max') {
+                padding: 20px 10px;
+            }
         }
       
         .dropdown-menu {
             position: static;
+        }
+
+        &.nav-search {
+            flex-direction: row;
         }
     }
 

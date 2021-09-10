@@ -1,0 +1,65 @@
+$border-radius-sm   : 0.2rem !default;  // 3.2px
+$border-radius      : 0.25rem !default; // 4px
+$border-radius-lg   : 0.3rem !default;  // 4.8px
+$border-radius-pill : 50rem !default;
+
+$border-radius-directions : (
+    "top"   : ( "left" : "tl", "right" : "tr" ),
+    "bottom": ( "left" : "bl", "right" : "br" )
+) !default;
+
+$radius-values: (
+    0     : 0,
+    1     : $border-radius-sm,
+    2     : $border-radius,
+    3     : $border-radius-lg,
+    6     : 0.375rem,  
+    7     : 0.438rem, 
+    8     : 0.5rem, 
+    9     : 0.563rem, 
+    10    : 0.625rem, 
+    12    : 0.75rem, 
+    14    : 0.875rem, 
+    16    : 1rem, 
+    20    : 1.25rem, 
+    24    : 1.5rem, 
+    px    : 1px,
+) !default;
+
+$border-radius-utility: (
+    "rounded": (
+        property: border-radius,
+        class: r,
+        values: (
+            map-merge(
+                $radius-values,
+                (
+                    'circle'  : 50%,
+                    'half'    : 50%, 
+                    '1\\/2'   : 50%, 
+                    'full'    : $border-radius-pill
+                )
+            )
+        ),
+    ),
+    "rounded-top": (
+        property: border-top-left-radius border-top-right-radius,
+        class   : rt,
+        values  : $radius-values,
+    ),
+    "rounded-right": (
+        property: border-top-right-radius border-bottom-right-radius,
+        class   : rr,
+        values  : $radius-values,
+    ),
+    "rounded-bottom": (
+        property: border-bottom-right-radius border-bottom-left-radius,
+        class   : rb,
+        values  : $radius-values,
+    ),
+    "rounded-left": (
+        property: border-bottom-left-radius border-top-left-radius,
+        class   : rl,
+        values  : $radius-values,
+    ),
+);

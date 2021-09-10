@@ -1,4 +1,3 @@
-// scss-docs-start border-variables
 $border-width       : 1px !default;
 $border-widths      : (
   1: 1px,
@@ -9,9 +8,3 @@ $border-widths      : (
 ) !default;
 
 $border-color       : map-get($gray, 300);
-
-$border-radius      : .25rem !default;
-$border-radius-sm   : .2rem !default;
-$border-radius-lg   : .3rem !default;
-$border-radius-pill : 50rem !default;
-// scss-docs-end border-radius-variables

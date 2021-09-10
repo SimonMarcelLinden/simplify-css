@@ -19,56 +19,61 @@ $border: (
     "border" 	: (
         property: border,
         class	: b,
-        values	: 
-			map-merge(
-				( 
-					null: $border-width solid $border-color,
-				),
-				$border-widths
-			)
-		
+        values	:  map-merge(
+			( 
+				null: $border-width solid $border-color,
+			),
+			$border-widths
+		)
     ),
-    // "border-top": (
-    //     property: border-top,
-    //     class	: bt,
-    //     values	: (
-    //         null: $border-width solid $border-color,
-    //     ),
-    // ),
-    // "border-right": (
-    //     property: border-right,
-    //     class	: br,
-    //     values	: (
-    //         null: $border-width solid $border-color,
-    //     ),
-    // ),
-    // "border-bottom": (
-    //     property: border-bottom,
-    //     class	: bb,
-    //     values	: (
-    //         null: $border-width solid $border-color,
-    //     ),
-    // ),
-    // "border-left": (
-    //     property: border-left, 
-    //     class 	: bl,
-    //     values	: (
-    //         null: $border-width solid $border-color,
-    //     ),
-    // ),
-    // "border-color": (
-    //     property: border-color,
-    //     class 	: b,
-    //     values 	: map-merge(
-	// 		$theme-colors,
-	// 		(
-	// 			"white": $white,
-	// 		)
-	// 	),
-    // ),
-    // "border-width": (
-    //     property: border-width,
-    //     class 	: b,
-    //     values 	: $border-widths,
-    // ),
+    "border-top": (
+        property: border-top,
+        class	: bt,
+        values	: map-merge(
+			( 
+				null: $border-width solid $border-color,
+			),
+			$border-widths
+		)	
+    ),
+    "border-right": (
+        property: border-right,
+        class	: br,
+        values	: map-merge(
+			( 
+				null: $border-width solid $border-color,
+			),
+			$border-widths
+		)
+    ),
+    "border-bottom": (
+        property: border-bottom,
+        class	: bb,
+        values	: map-merge(
+			( 
+				null: $border-width solid $border-color,
+			),
+			$border-widths
+		)
+    ),
+    "border-left": (
+        property: border-left, 
+        class 	: bl,
+        values	: map-merge(
+			( 
+				null: $border-width solid $border-color,
+			),
+			$border-widths
+		)
+    ),
+    "border-color": (
+        property: border-color,
+        class 	: b,
+        values 	: map-merge(
+			$theme-colors,
+			(
+				"white": $white,
+			)
+		),
+    ),
 );

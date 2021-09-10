@@ -1,10 +1,74 @@
-$border-width       : 1px !default;
-$border-widths      : (
-  1: 1px,
-  2: 2px,
-  3: 3px,
-  4: 4px,
-  5: 5px
+$border-width  : 0.063rem !default;
+$border-widths : (
+	0 : $border-width * 0,  
+	1 : $border-width,
+	2 : $border-width * 1.98412698,
+	3 : $border-width * 2.984126984,
+	4 : $border-width * 3.968253968,
+	5 : $border-width * 4.968253968,
+	6 : $border-width * 5.952380952,
+	7 : $border-width * 6.952380952,
+	8 : $border-width * 7.936507937,
+	9 : $border-width * 8.936507937,
+	10: $border-width * 9.920634921,
 ) !default;
 
-$border-color       : map-get($gray, 300);
+$border-color 	: map-get($gray, 300);
+
+$border: (
+    "border" 	: (
+        property: border,
+        class	: b,
+        values	: 
+			map-merge(
+				( 
+					null: $border-width solid $border-color,
+				),
+				$border-widths
+			)
+		
+    ),
+    // "border-top": (
+    //     property: border-top,
+    //     class	: bt,
+    //     values	: (
+    //         null: $border-width solid $border-color,
+    //     ),
+    // ),
+    // "border-right": (
+    //     property: border-right,
+    //     class	: br,
+    //     values	: (
+    //         null: $border-width solid $border-color,
+    //     ),
+    // ),
+    // "border-bottom": (
+    //     property: border-bottom,
+    //     class	: bb,
+    //     values	: (
+    //         null: $border-width solid $border-color,
+    //     ),
+    // ),
+    // "border-left": (
+    //     property: border-left, 
+    //     class 	: bl,
+    //     values	: (
+    //         null: $border-width solid $border-color,
+    //     ),
+    // ),
+    // "border-color": (
+    //     property: border-color,
+    //     class 	: b,
+    //     values 	: map-merge(
+	// 		$theme-colors,
+	// 		(
+	// 			"white": $white,
+	// 		)
+	// 	),
+    // ),
+    // "border-width": (
+    //     property: border-width,
+    //     class 	: b,
+    //     values 	: $border-widths,
+    // ),
+);

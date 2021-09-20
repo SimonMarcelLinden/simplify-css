@@ -21,8 +21,11 @@
 
 $utilities: () !default;
 
+@import "./flex";
+@import "./display";
 @import "./padding";
 @import "./margin";
+@import "./text";
 
 // scss-docs-start zindex-stack
 $z-dropdown        : 1000 !default;

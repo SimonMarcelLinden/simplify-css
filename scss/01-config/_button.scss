@@ -1,9 +1,12 @@
 $btn-border-radius    : $border-radius !default;
 $btn-border-radius-sm : $btn-border-radius;
-$btn-border-radius-md : .2rem !default;
+$btn-border-radius-md : .25rem !default;
 $btn-border-radius-lg : .3rem !default;
 
-$btn-line-height      : $line-height-base !default;
+$btn-font-family : null !default;
+$btn-line-height : $line-height-base !default;
+$btn-white-space : null !default;
+$btn-font-weight : $font-weight-normal !default;
 
 $btn-font-size: (
     sm: $font-size-base * .875,
@@ -38,3 +41,6 @@ $btn-size: (
     md: $btn-md,
     lg: $btn-lg,
 );
+
+$btn-border-width     : $border-width !default;
+$btn-disabled-opacity : .65 !default;

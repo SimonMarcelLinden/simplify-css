@@ -1,0 +1,55 @@
+.countdown-time {	
+    display 	: flex;
+    width  		: 100%;
+    margin-left	: -15px;
+    margin-right: -15px;
+    width		: auto;
+	@include breakpoint(md, $breakpoints, 'max') {
+			margin-left : -5px;
+			margin-right: -5px;
+	}
+	
+	.countdown-wrapper {
+		width 		: 100%;
+		background 	: {
+			color	: #fff;
+		}
+		padding 	: 15px;
+		box-shadow	: 0 0 5px #00000008;
+		@include breakpoint(md, $breakpoints, 'max') {
+			padding: 10px;
+		}
+	}
+
+	.countdown-box {
+		width		: 25%;
+		float		: left;
+		padding		: 0 15px;
+		font-family	: 'Roboto';
+		@include breakpoint(md, $breakpoints, 'max') {
+			padding: 0 5px;
+		}
+		.countdown-wrapper {
+			display		: inline-block;
+			text-align	: center;
+		}
+
+		.countdown {
+			color 	 : #292b2c;
+			font-size: 40px;
+			@include breakpoint(lg, $breakpoints, 'max') {
+    			font-size: 34px;
+			}
+			@include breakpoint(sm, $breakpoints, 'max') {
+				font-size: 30px;
+			}
+		}
+	}
+
+	.text {
+		display: block;
+		@include breakpoint(md, $breakpoints, 'max') {
+			font-size: 12px;
+		}
+	}
+}

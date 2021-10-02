@@ -1,6 +1,6 @@
 $border-width  : 0.063rem !default;
 $border-widths : (
-	0 : $border-width * 0,  
+	0 : $border-width * 0,
 	1 : $border-width,
 	2 : $border-width * 1.98412698,
 	3 : $border-width * 2.984126984,
@@ -20,7 +20,7 @@ $border: (
         property: border,
         class	: b,
         values	:  map-merge(
-			( 
+			(
 				null: $border-width solid $border-color,
 			),
 			$border-widths
@@ -30,17 +30,17 @@ $border: (
         property: border-top,
         class	: bt,
         values	: map-merge(
-			( 
+			(
 				null: $border-width solid $border-color,
 			),
 			$border-widths
-		)	
+		)
     ),
     "border-right": (
         property: border-right,
         class	: br,
         values	: map-merge(
-			( 
+			(
 				null: $border-width solid $border-color,
 			),
 			$border-widths
@@ -50,17 +50,17 @@ $border: (
         property: border-bottom,
         class	: bb,
         values	: map-merge(
-			( 
+			(
 				null: $border-width solid $border-color,
 			),
 			$border-widths
 		)
     ),
     "border-left": (
-        property: border-left, 
+        property: border-left,
         class 	: bl,
         values	: map-merge(
-			( 
+			(
 				null: $border-width solid $border-color,
 			),
 			$border-widths
@@ -74,6 +74,26 @@ $border: (
 			(
 				"white": $white,
 			)
+		),
+    ),
+    "border-style": (
+        property: border-style,
+        class 	: b,
+        values 	: (
+			"dashed"	: dashed,
+			"dotted"	: dotted,
+			"double"	: double,
+			"groove"	: groove,
+			"hidden"	: hidden,
+			"inherit"	: inherit,
+			"initial"	: initial,
+			"inset"		: inset,
+			"none"		: none,
+			"outset"	: outset,
+			"revert"	: revert,
+			"ridge"		: ridge,
+			"solid"		: solid,
+			"unset"		: unset,
 		),
     ),
 );

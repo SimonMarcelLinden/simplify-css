@@ -1,13 +1,14 @@
 {
   "name": "simplify-css-package",
-  "version": "2.0.0-beta.0",
+  "version": "2.0.0-beta.1",
   "description": "CSS Package for Simplify",
   "main": "dist/css/simplify-css.css",
   "browser": "dist/css/simplify-css.css",
   "module": "dist/css/simplify-css.css",
   "unpkg": "dist/css/simplify-css.css",
   "files": [
-    "dist/*"
+    "dist/*",
+    "scss/02-mixins"
   ],
   "scripts": {
     "build": "npm run build-sass && npm run build-autoprefix && npm run build-cleancss",

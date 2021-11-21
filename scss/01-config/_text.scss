@@ -68,4 +68,9 @@ $text: (
       class   : text,
       values  : (break: break-word)
     ),
+    "color": (
+      property: color,
+      class   : text,
+      values  : map-merge($theme-colors, $colors),
+    ),
 );

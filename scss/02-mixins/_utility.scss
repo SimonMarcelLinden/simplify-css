@@ -19,9 +19,19 @@
 
         $property-class-modifier: if($key, if($property-class == "" and $prefix == "", "", "-") + $key, "");
 
-        .#{$infix + $property-class + $property-class-modifier} {
-            @each $key, $propertie in $properties {
-                #{$key}: #{$value};
+        @if(type-of($value) != "map") {
+            .#{$infix + $property-class + $property-class-modifier} {
+                @each $key, $propertie in $properties {
+                    #{$key}: #{$value};
+                }
+            }
+        } @else {
+            @each $property-sub-modifier, $item in $value {
+                .#{$infix + $property-class + $property-class-modifier + '-' + $property-sub-modifier} {
+                    @each $key, $propertie in $properties {
+                        #{$key}: #{$item};
+                    }
+                }
             }
         }
     }

@@ -71,6 +71,6 @@ $text: (
     "color": (
       property: color,
       class   : text,
-      values  : map-merge($theme-colors, $colors),
+      values  : map-collect($theme-colors, $colors, ( "black": $black ), ( "white": $white )),
     ),
 );

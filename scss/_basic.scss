@@ -28,6 +28,12 @@ body {
     }
 }
 
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+    display     : block;
+    font-size   : var(--body-font-size);
+    color       : #3e3e3e;
+}
+
 [tabindex="-1"]:focus:not(:focus-visible) {
     outline: 0!important
 }
@@ -56,7 +62,7 @@ hr {
     color           : $headings-color;
 }
 
-@for $index from 1 to 6 {
+@for $index from 1 to 7 {
 	h#{$index} {
 		@extend %heading;
         font-size: map-get($font-sizes, $index);
@@ -100,6 +106,16 @@ dd {
     }
 }
 
+// Small
+//
+// Add the correct font size in all browsers
+
+small {
+    font-size  : $font-size-sm;
+    font-weight: 400;
+
+}
+
 a {
     color           : $link-color;
     text-decoration : $link-decoration;
@@ -124,11 +140,6 @@ img, svg {
 }
 
 /** Forms, Buttons & other **/
-
-form, .form {
-    position: relative;
-    width   : 100%;
-}
 
 label {
     display: inline-block;

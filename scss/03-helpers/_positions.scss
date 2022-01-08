@@ -2,9 +2,9 @@
     &-top,
     &-bottom {
         position: fixed;
-        z-index : $z-fixed;
         right   : 0;
         left    : 0;
+        z-index : $z-fixed;
     }
     &-top {
         top     : 0;
